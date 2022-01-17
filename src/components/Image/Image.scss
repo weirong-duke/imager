@@ -1,0 +1,39 @@
+.Image {
+  align-items: center;
+  background-color: var(--color-imgur--background);
+  box-shadow: 0 2px 4px 0 var(--color-border-gray);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  transition: 0.2s ease-in-out;
+  width: 240px;
+
+  &:hover {
+    transform: scale(1.4);
+  }
+
+  &__image {
+    width: 100%;
+    margin: auto;
+    max-height: 400px;
+    min-height: 96px;
+  }
+
+  &__details {
+    background-color: var(--color-imgur--gray--light);
+    display: flex;
+    font-family: Proxima Nova Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    justify-content: start;
+    margin-top: auto;
+    min-height: 48px;
+    width: 100%;
+
+    &__name {
+      padding: 8px;
+    }
+  }
+}

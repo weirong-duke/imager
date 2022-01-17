@@ -1,0 +1,32 @@
+@import "../../styles/mixins";
+
+.Button {
+  @include is-a-button;
+
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 6px 10px 0 rgb(27 28 30 / 31%);
+  color: var(--color-white);
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  min-height: 32px;
+  padding: 0 8px;
+  position: relative;
+  text-align: center;
+  width: auto;
+  white-space: nowrap;
+
+  &--submit {
+    background-color: var(--color-imgur-button-submit);
+  }
+
+  &--danger {
+    background-color: var(--color-imgur-button-danger);
+  }
+
+  &--neutral {
+    background-color: var(--color-imgur-button-neutral);
+  }
+
+}

@@ -1,0 +1,16 @@
+:root {
+  --color-border-gray: #101010;
+  --color-imgur--primary: #162814;
+  --color-imgur--background: #2E3035;
+  --color-imgur--gray--light: #56585F;
+  --color-imgur-button-submit: #1BB76E;
+  --color-imgur-button-danger: red;
+  --color-imgur-button-neutral: #979797;
+  --color-white: white;
+}
+
+.text {
+  &--danger {
+    color: red;
+  }
+}

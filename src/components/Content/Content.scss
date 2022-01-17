@@ -1,0 +1,33 @@
+.Content{
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 32px 64px;
+  margin: auto;
+  min-height: 100vh;
+
+  &__container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+
+  &__grid {
+    display: grid;
+    max-width: 100%;
+  }
+
+  &__title {
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    line-height: 1;
+    margin-bottom: 24px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+}

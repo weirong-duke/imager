@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-family: Proxima Nova Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+
+.App {
+  background-color: var(--color-imgur--background);
+  text-align: center;
+
+  &__logo {
+    margin-right: auto;
+  }
+
+  &__search-banner {
+    align-items: center;
+    background-image: url("../assets/bannerBackground.png");
+    box-shadow: 0 0 25px 5px #000;
+    display: flex;
+    flex-direction: row;
+    height: 32px;
+    justify-content: center;
+    padding: 24px;
+    position: sticky;
+    top: 0;
+  }
+
+  &__search-bar {
+    background: hsla(0,0%,100%,.25);
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: var(--color-white);
+    margin: 0 12px;
+    max-width: 320px;
+    min-height: 24px;
+    min-width: 200px;
+    font-size: 16px;
+    font-weight: 700;
+    opacity: .8;
+    outline: 0 none;
+    padding: 4px 8px;
+    letter-spacing: .4px;
+    text-shadow: inherit;
+  }
+
+  &__search-submit {
+    background-color: var(--color-imgur-button-submit);
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 6px 10px 0 rgb(27 28 30 / 31%);
+    color: var(--color-white);
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: auto;
+    min-height: 32px;
+    padding: 0 8px;
+    position: relative;
+    text-align: center;
+    width: auto;
+    white-space: nowrap;
+  }
+
+  &__upload {
+    margin-left: auto;
+  }
+}

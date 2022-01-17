@@ -1,0 +1,6 @@
+@mixin is-a-button {
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.25)
+  }
+}
