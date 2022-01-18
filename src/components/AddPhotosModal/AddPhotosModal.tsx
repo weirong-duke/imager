@@ -42,7 +42,7 @@ const AddPhotosModal = ({isOpen, onClose, onImageUpload}: AddPhotosModalProps) =
       const {name, size} = filteredFile;
       return {
         data: await readFileAsText(filteredFile),
-        name,
+        fileName: name,
         size
       }
     }));
@@ -87,11 +87,11 @@ const AddPhotosModal = ({isOpen, onClose, onImageUpload}: AddPhotosModalProps) =
         <input type="file" ref={hiddenFileInput} style={{display: 'none'}} onChange={handleFileUploadToBrowser} multiple/>
 
         <div className="AddPhotosModal__content">
-          {files.map(({data, name, size}, index) => {
+          {files.map(({data, fileName, name, size}, index) => {
             return <div key={index} className="AddPhotosModal__file-container">
               <img className="AddPhotosModal__file-preview" src={data} />
               <div className="AddPhotosModal__file-details">
-                <div>{name}</div>
+                <div>{fileName}</div>
                 <div>{formatBytes(size)}</div>
               </div>
                 <img className="AddPhotosModal__file-delete" src={DeleteIcon} onClick={handleDeleteImage(index)}/>

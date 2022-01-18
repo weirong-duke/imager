@@ -20,13 +20,16 @@ const numImagesForScreenWidth = (width: number) => {
   return Math.floor(useableGridSpace / (IMAGE_WIDTH + GRID_SPACING))
 }
 
-function App() {
+export enum ImageSortOptions {
+  Id = "id",
+  CreatedDate = 'createdDate'
+}
 
+function App() {
   const [isAddPhotosModalOpen, setIsAddPhotosModalOpen] = useState<boolean>(false);
   const [images, setImages] = useState<ImageType[]>([])
+  const [imageSort, setImageSort] = useState<ImageSortOptions>(ImageSortOptions.Id)
   const [searchText, setSearchText] = useState<string>('');
-
-  const filteredImages = images.filter(image => image.name.includes(searchText));
 
   const {data} = useQuery('images', getImages)
 
@@ -41,18 +44,34 @@ function App() {
 
   const imagesPerRow = useMemo(() => screenWidth ? numImagesForScreenWidth(screenWidth) : 0, [screenWidth])
 
+  const onImageUpload = (newImages: ImageType[]) => {
+    setImages([...images, ...newImages]);
+  }
+
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e?.target.value);
+  }
+
+  const sortImages = (imageA: ImageType, imageB: ImageType) => {
+    if (imageSort === ImageSortOptions.Id) {
+      return 1;
+    } else if (imageSort === ImageSortOptions.CreatedDate) {
+      if (new Date(imageA.createdAt) > new Date(imageB.createdAt)) {
+        return -1;
+      } else {
+        return 1;
+      }
+    }
+    return 1;
   }
 
   const toggleModal = () => {
     setIsAddPhotosModalOpen(!isAddPhotosModalOpen);
   }
 
-  const onImageUpload = (newImages: ImageType[]) => {
-    console.log('hrm', newImages)
-    setImages([...images, ...newImages]);
-  }
+  const filteredAndSortedImages = images
+    .filter(image => image.fileName.includes(searchText))
+    .sort(sortImages);
 
   return (
     <div className="App" ref={appRef}>
@@ -62,7 +81,7 @@ function App() {
         <input className="App__search-bar" onChange={onInputChange} placeholder="Filter by image name..." value={searchText} />
         <Button className="App__upload" onClick={toggleModal} type="submit">Add Photos</Button>
       </div>
-      <Content images={filteredImages} imagesPerRow={imagesPerRow}/>
+      <Content images={filteredAndSortedImages} imagesPerRow={imagesPerRow} setImageSort={setImageSort}/>
 
     </div>
   );
