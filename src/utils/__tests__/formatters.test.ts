@@ -1,5 +1,4 @@
 import {formatBytes, formatGetImageData} from '../formatters';
-import { Comment } from 'types/Comment';
 
 const mockImageData = {
   data: [{
