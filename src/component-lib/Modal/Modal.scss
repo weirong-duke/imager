@@ -38,11 +38,12 @@
     box-shadow: 0 2px 4px 0 var(--color-border-gray);
     display: flex;
     flex-direction: column;
-    height: 80%;
+    height: 80vh;
     max-width: 1024px;
     min-width: 400px;
     overflow: hidden;
     position: fixed;
+    top: 64px;
     width: 50%;
   }
 

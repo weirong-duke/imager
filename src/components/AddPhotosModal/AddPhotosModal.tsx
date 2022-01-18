@@ -87,16 +87,18 @@ const AddPhotosModal = ({isOpen, onClose, onImageUpload}: AddPhotosModalProps) =
         <input type="file" ref={hiddenFileInput} style={{display: 'none'}} onChange={handleFileUploadToBrowser} multiple/>
 
         <div className="AddPhotosModal__content">
-          {files.map(({data, fileName, name, size}, index) => {
-            return <div key={index} className="AddPhotosModal__file-container">
-              <img alt="file-preview" className="AddPhotosModal__file-preview" src={data} />
-              <div className="AddPhotosModal__file-details">
-                <div>{fileName}</div>
-                <div>{formatBytes(size)}</div>
-              </div>
+          <div className={"AddPhotosModal__content-container"}>
+            {files.map(({data, fileName, name, size}, index) => {
+              return <div key={index} className="AddPhotosModal__file-container">
+                <img alt="file-preview" className="AddPhotosModal__file-preview" src={data} />
+                <div className="AddPhotosModal__file-details">
+                  <div>{fileName}</div>
+                  <div>{formatBytes(size)}</div>
+                </div>
                 <img alt="file-delete" className="AddPhotosModal__file-delete" src={DeleteIcon} onClick={handleDeleteImage(index)}/>
-            </div>
-          })}
+              </div>
+            })}
+          </div>
         </div>
       </div>
   </Modal>
