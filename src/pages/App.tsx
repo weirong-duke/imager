@@ -77,7 +77,7 @@ function App() {
     <div className="App" ref={appRef}>
       <AddPhotosModal isOpen={isAddPhotosModalOpen} onClose={toggleModal} onImageUpload={onImageUpload} />
       <div className="App__search-banner">
-        <img className="App__logo" src={imagerLogo} height={"34px"}/>
+        <img alt="logo" className="App__logo" src={imagerLogo} height={"34px"}/>
         <input className="App__search-bar" onChange={onInputChange} placeholder="Filter by image name..." value={searchText} />
         <Button className="App__upload" onClick={toggleModal} type="submit">Add Photos</Button>
       </div>
