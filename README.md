@@ -18,6 +18,9 @@ Also, I used yarn and not npm (although both should work fine).
 
 Setup should start running just by running the following.
 
+I've uploaded an additional help video to Youtube that will hopefully help, if there's trouble:
+https://www.youtube.com/watch?v=r6d68avACPs
+
 ### `yarn`
 
 This will install dependencies.
